@@ -2,7 +2,6 @@ package app
 
 import (
 	"flag"
-	"github.com/gin-gonic/gin"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/nothollyhigh/kiss/log"
 	"github.com/nothollyhigh/kiss/util"
@@ -56,15 +55,11 @@ func initLog() {
 	)
 	if config.Debug {
 		logout = io.MultiWriter(os.Stdout, fileWriter)
-		gin.SetMode(gin.DebugMode)
 	} else {
 		logout = fileWriter
-		gin.SetMode(gin.ReleaseMode)
 	}
 
 	log.SetOutput(logout)
-
-	gin.DefaultWriter = logout
 
 	configData, _ := json.MarshalIndent(config, "", "    ")
 	log.Info("config: %v\n%v", *confpath, string(configData))
