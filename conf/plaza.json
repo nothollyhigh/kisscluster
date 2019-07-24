@@ -1,0 +1,16 @@
+{
+	//日志模式
+	"Debug": true,
+	
+	//日志目录
+	"LogDir": "./logs/plaza/",
+	
+	//大厅服务器ID
+	"SvrID": "plaza_01",
+
+	//监听地址
+	"CenterAddr": "127.0.0.1:20000",
+
+	//大厅服务器监听地址
+	"SvrAddr": ":21000"
+}

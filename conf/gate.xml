@@ -1,0 +1,22 @@
+<setting>
+    <!-- debug: 设置日志是否输出到控制台 -->
+    <!-- logdir: 日志目录 -->
+    <!-- redirect: 是否开启全局tcp重定向 -->
+    <options debug="true" logdir="./logs/gate/" redirect="true">
+        <heartbeat interval="60" timeout="50"/>
+    </options>
+
+    <proxy>
+        <!-- websocket 11000 端口, 路由 /gate/ws, 反代到plaza tcp 21000 端口, 可以根据具体业务实现增加node配置多组plaza -->
+        <line name="ws_plaza" addr=":11000" type="websocket" tls="false">
+            <route path="/gate/ws"/>
+            <node addr="127.0.0.1:21000" maxload="50000"/>
+        </line>
+
+        <!-- websocket 12000 端口, 路由 /gate/ws, 反代到plaza tcp 22000 端口, 可以根据具体业务实现增加node配置多组game --> 
+        <line name="ws_game" addr=":12000" type="websocket" tls="false">
+            <route path="/gate/ws"/>
+            <node addr="127.0.0.1:22000" maxload="50000"/>
+        </line>
+    </proxy>
+</setting>
