@@ -12,7 +12,7 @@ var (
 	centerSession *net.RpcClient
 )
 
-func updatePlazaInfo() {
+func updateGameInfo() {
 	var (
 		req = &proto.CenterUpdateServerInfoReq{
 			proto.ServerInfo{
@@ -41,7 +41,7 @@ func updatePlazaInfo() {
 
 func onConnectedCenter(client *net.TcpClient) {
 	if centerSession != nil {
-		updatePlazaInfo()
+		updateGameInfo()
 	}
 }
 
@@ -59,7 +59,7 @@ func startCenterSession() {
 		panic(err)
 	}
 
-	updatePlazaInfo()
+	updateGameInfo()
 }
 
 func stopCenterSession() {
