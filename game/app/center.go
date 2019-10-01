@@ -39,10 +39,8 @@ func updateGameInfo() {
 	}
 }
 
-func onConnectedCenter(client *net.TcpClient) {
-	if centerSession != nil {
-		updateGameInfo()
-	}
+func onConnectedCenter(client *net.RpcClient) {
+	updateGameInfo()
 }
 
 func startCenterSession() {
