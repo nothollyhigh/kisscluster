@@ -38,10 +38,8 @@ func updatePlazaInfo() {
 	}
 }
 
-func onConnectedCenter(client *net.TcpClient) {
-	if centerSession != nil {
-		updatePlazaInfo()
-	}
+func onConnectedCenter(client *net.RpcClient) {
+	updatePlazaInfo()
 }
 
 func onUpdateGameListNotify(client *net.TcpClient, msg net.IMessage) {
