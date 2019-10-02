@@ -40,6 +40,7 @@ func updateGameInfo() {
 }
 
 func onConnectedCenter(client *net.RpcClient) {
+	centerSession = client
 	updateGameInfo()
 }
 
