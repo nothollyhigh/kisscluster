@@ -39,6 +39,7 @@ func updatePlazaInfo() {
 }
 
 func onConnectedCenter(client *net.RpcClient) {
+	centerSession = client
 	updatePlazaInfo()
 }
 
